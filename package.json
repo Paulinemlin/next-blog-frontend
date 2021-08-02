@@ -21,10 +21,13 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^10.3.1",
     "eslint": "^7.30.0",
     "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.1"
+    "postcss": "^8.3.6",
+    "prettier": "^2.3.1",
+    "tailwindcss": "^2.2.7"
   }
 }
