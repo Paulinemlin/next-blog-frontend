@@ -1,8 +1,8 @@
-import Nav from "./nav"
+import Navigation from "./navigation"
 
 const Layout = ({ children, categories, seo }) => (
   <>
-    <Nav categories={categories} />
+    <Navigation categories={categories} />
     {children}
   </>
 )

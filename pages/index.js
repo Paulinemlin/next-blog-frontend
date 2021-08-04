@@ -1,32 +1,29 @@
-import React from "react"
-import Articles from "../components/articles"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import { fetchAPI } from "../lib/api"
+import React from "react";
+import Articles from "../components/articles";
+import Layout from "../components/layout";
+import Header from "../components/header";
+import Seo from "../components/seo";
+import { fetchAPI } from "../lib/api";
 
 const Home = ({ articles, categories, homepage }) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.seo} />
-      <div className="uk-section">
-        <div className="">
-          
 
-          <div className="text-center">
-          <h1 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">{homepage.hero.title}</h1>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-            {homepage.hero.description}
-          </p>
-        </div>
-        <div className="relative max-w-7xl mx-auto">
-          <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">#Derniers articles</h2>
-          <Articles articles={articles} />
-          </div>
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto py-8 px-4 sm:py-16 sm:px-6 lg:px-8">
+          <Header homepage={homepage}/>
         </div>
       </div>
+      <div className="max-w-7xl mx-auto py-8 px-4 sm:py-16 sm:px-6 lg:px-8">
+      <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+          # Derniers articles
+        </h2>
+        <Articles articles={articles} />
+      </div>
     </Layout>
-  )
-}
+  );
+};
 
 export async function getStaticProps() {
   // Run API calls in parallel
@@ -34,12 +31,12 @@ export async function getStaticProps() {
     fetchAPI("/articles"),
     fetchAPI("/categories"),
     fetchAPI("/homepage"),
-  ])
+  ]);
 
   return {
     props: { articles, categories, homepage },
     revalidate: 1,
-  }
+  };
 }
 
-export default Home
+export default Home;
